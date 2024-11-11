@@ -8,14 +8,10 @@ import { useLocation } from "react-router-dom";
 const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
-  const Location = useLocation()
+  const Location = useLocation();
 
   return (
-    <Navbar
-      fixed="top"
-      expand="md"
-      className="navbar"
-    >
+    <Navbar fixed="top" expand="md" className="navbar">
       <Container className="navbar-container">
         <Navbar.Brand to="/">
           <ion-icon name="bag" />
@@ -50,18 +46,19 @@ const NavBar = () => {
             <span></span>
             <span></span>
           </Navbar.Toggle>
-          
         </div>
 
-        <Navbar.Collapse id="basic-navbar-nav" >
-          <Nav
-            className="justify-content-end flex-grow-1 pe-3"
-          >
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="justify-content-end flex-grow-1 pe-3">
             <div className="nav-links-wrapper">
               <Nav.Item>
                 <Link
                   aria-label="Go to Home Page"
-                  className = {Location.pathname === "/" ? "navbar-link nav-link-active" : "navbar-link"}
+                  className={
+                    Location.pathname === "/"
+                      ? "navbar-link nav-link-active"
+                      : "navbar-link"
+                  }
                   to="/"
                   onClick={() => setExpand(false)}
                 >
@@ -72,7 +69,11 @@ const NavBar = () => {
               <Nav.Item>
                 <Link
                   aria-label="Go to Shop Page"
-                  className = {Location.pathname === "/shop" ? "navbar-link nav-link-active" : "navbar-link"}
+                  className={
+                    Location.pathname === "/shop"
+                      ? "navbar-link nav-link-active"
+                      : "navbar-link"
+                  }
                   to="/shop"
                   onClick={() => setExpand(false)}
                 >
@@ -83,33 +84,15 @@ const NavBar = () => {
               <Nav.Item>
                 <Link
                   aria-label="Go to Cart Page"
-                  className = {Location.pathname === "/cart" ? "navbar-link nav-link-active" : "navbar-link"}
+                  className={
+                    Location.pathname === "/cart"
+                      ? "navbar-link nav-link-active"
+                      : "navbar-link"
+                  }
                   to="/cart"
                   onClick={() => setExpand(false)}
                 >
                   <span className="nav-link-label">Purchase</span>
-                </Link>
-              </Nav.Item>
-
-              <Nav.Item>
-                <Link
-                  aria-label="Go to Cart Page"
-                  className = {Location.pathname === "/login" ? "navbar-link nav-link-active" : "navbar-link"}
-                  to="/login"
-                  onClick={() => setExpand(false)}
-                >
-                  <span className="nav-link-label">Log in</span>
-                </Link>
-              </Nav.Item>
-
-              <Nav.Item>
-                <Link
-                  aria-label="Go to Cart Page"
-                  className = {Location.pathname === "/signup" ? "navbar-link nav-link-active" : "navbar-link"}
-                  to="/signup"
-                  onClick={() => setExpand(false)}
-                >
-                  <span className="nav-link-label">SignUp</span>
                 </Link>
               </Nav.Item>
             </div>
